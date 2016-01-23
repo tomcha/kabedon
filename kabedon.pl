@@ -6,6 +6,11 @@ get '/' => sub {
   $self->render(template => 'index');
 };
 
+get '/request' => sub {
+  my $self = shift;
+  my $dotsukitimes = $self->param('dotsukitimes');
+  $self->render(template => 'request');
+};
 
 
 app->start;
