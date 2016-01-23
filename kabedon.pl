@@ -6,15 +6,19 @@ get '/' => sub {
   $self->render(template => 'index');
 };
 
+
+
 app->start;
 __DATA__
 
 @@ index.html.ep
 % layout 'default';
-% title 'Welcome';
-<h1>Welcome to the Mojolicious real-time web framework!</h1>
-To learn more, you can browse through the documentation
-<%= link_to 'here' => '/perldoc' %>.
+% title '壁殴り代行サービス';
+<h1>壁殴り代行サービス</h1>
+%= form_for '/request' => begin
+  %= select_field dotsukitimes =>[['1回殴り' => 1], ['2回殴り' => 2], ['3回殴り' => 3]]
+  %= submit_button '依頼する'
+%= end
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
