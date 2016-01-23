@@ -35,6 +35,9 @@ __DATA__
   ドンッ！
 % }
 </p>
+%= form_for '/' => begin
+  %= submit_button '依頼ページヘ戻る'
+%= end
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
