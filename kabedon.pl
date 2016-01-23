@@ -9,6 +9,7 @@ get '/' => sub {
 get '/request' => sub {
   my $self = shift;
   my $dotsukitimes = $self->param('dotsukitimes');
+  $self->stash(dotsukitimes => $dotsukitimes);
   $self->render(template => 'request');
 };
 
@@ -24,6 +25,16 @@ __DATA__
   %= select_field dotsukitimes =>[['1回殴り' => 1], ['2回殴り' => 2], ['3回殴り' => 3]]
   %= submit_button '依頼する'
 %= end
+
+@@ request.html.ep
+% layout 'default';
+% title '壁殴り代行サービス';
+<h1>壁殴り代行サービス</h1>
+<p>
+% for my $i (1..$dotsukitimes){
+  ドンッ！
+% }
+</p>
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
